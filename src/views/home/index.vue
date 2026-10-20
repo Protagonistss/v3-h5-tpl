@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { showSuccessToast, showToast } from 'vant'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+
 import { getUserInfoApi } from '@/api/user'
-import { useUserStore } from '@/stores/user'
 import HdcButton from '@/components/HdcButton.vue'
 import HdcInput from '@/components/HdcInput.vue'
+import { useUserStore } from '@/stores/user'
 
 const router = useRouter()
 const userStore = useUserStore()

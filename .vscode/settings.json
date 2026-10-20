@@ -1,11 +1,9 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "oxc.vscode-oxc",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.oxlint": "explicit"
   },
-  "eslint.useFlatConfig": true,
-  "eslint.validate": ["javascript", "typescript", "vue"],
   "files.associations": {
     "*.css": "css"
   }

@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, type RouteRecordRaw } from 'vue-router'
+
 import { TOKEN_KEY } from '@/constants'
 import { storage } from '@/utils/storage'
 
@@ -44,6 +45,7 @@ router.beforeEach((to) => {
   if (to.name === 'Login' && token) {
     return { name: 'Home' }
   }
+  return true
 })
 
 /** 全局后置钩子:同步页面标题 */

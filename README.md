@@ -4,18 +4,18 @@
 
 ## 技术栈
 
-| 分类 | 方案 | 说明 |
-| --- | --- | --- |
-| 框架 | Vue 3.5 + `<script setup>` | 组合式 API |
-| 语言 | TypeScript 5 | `strict` 模式 |
-| 构建 | Vite 6 | — |
-| 路由 | vue-router 4 | hash 模式(免服务端配置) |
-| 状态 | Pinia | setup 写法 store |
-| UI | Vant 4 | 按需自动注册(unplugin-vue-components) |
-| 请求 | Axios | 统一拦截器封装,类型安全 |
-| 适配 | postcss-px-to-viewport | 375 设计稿 px → vw 自动转换 |
-| 规范 | ESLint 9(flat config)+ Prettier 3 | — |
-| 调试 | vConsole | 环境变量开关,仅开发环境加载 |
+| 分类 | 方案                          | 说明                                  |
+| ---- | ----------------------------- | ------------------------------------- |
+| 框架 | Vue 3.5 + `<script setup>`    | 组合式 API                            |
+| 语言 | TypeScript 5                  | `strict` 模式                         |
+| 构建 | Vite 6                        | —                                     |
+| 路由 | vue-router 4                  | hash 模式(免服务端配置)               |
+| 状态 | Pinia                         | setup 写法 store                      |
+| UI   | Vant 4                        | 按需自动注册(unplugin-vue-components) |
+| 请求 | Axios                         | 统一拦截器封装,类型安全               |
+| 适配 | postcss-px-to-viewport        | 375 设计稿 px → vw 自动转换           |
+| 规范 | oxlint + oxfmt(@ithinku 预设) | Rust 工具链,亳秒级 lint/format        |
+| 调试 | vConsole                      | 环境变量开关,仅开发环境加载           |
 
 ## 快速开始
 
@@ -24,8 +24,10 @@ pnpm install      # 安装依赖
 pnpm dev          # 启动开发服务(默认 5173,局域网可通过 IP 访问)
 pnpm build        # 类型检查 + 生产构建
 pnpm preview      # 预览生产构建
-pnpm lint         # ESLint 检查并自动修复
-pnpm format       # Prettier 格式化
+pnpm lint         # oxlint 检查
+pnpm lint:fix     # oxlint 检查并自动修复
+pnpm format       # oxfmt 格式化(含 import 自动排序)
+pnpm format:check # 仅检查格式(CI 用)
 ```
 
 ## 目录结构
@@ -35,6 +37,8 @@ pnpm format       # Prettier 格式化
 ├── .env.production         # 生产环境变量
 ├── index.html              # 移动端 viewport / meta 配置
 ├── vite.config.ts          # 构建配置(代理、px→vw、分包)
+├── oxlint.config.ts        # oxlint 配置(extends @ithinku/oxlint-config)
+├── oxfmt.config.ts         # oxfmt 格式化配置(extends @ithinku/oxfmt-config)
 └── src/
     ├── main.ts             # 应用入口
     ├── App.vue             # 根组件(Vant 主题定制入口)
@@ -82,11 +86,11 @@ const info = await request.get<UserInfo>('/user/info', { id: 1 })
 
 仅 `VITE_` 前缀变量会暴露给客户端,新增变量需同步在 `src/types/env.d.ts` 中补充类型声明。
 
-| 变量 | 说明 |
-| --- | --- |
-| `VITE_APP_TITLE` | 应用标题 |
-| `VITE_API_BASE_URL` | 接口基础路径 |
-| `VITE_PROXY_TARGET` | 开发代理目标(仅开发环境) |
+| 变量                   | 说明                       |
+| ---------------------- | -------------------------- |
+| `VITE_APP_TITLE`       | 应用标题                   |
+| `VITE_API_BASE_URL`    | 接口基础路径               |
+| `VITE_PROXY_TARGET`    | 开发代理目标(仅开发环境)   |
 | `VITE_ENABLE_VCONSOLE` | 是否启用 vConsole 调试面板 |
 
 ### 5. 新增页面

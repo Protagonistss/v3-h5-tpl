@@ -16,7 +16,6 @@ const props = withDefaults(defineProps<Props>(), {
   modelValue: '',
   placeholder: '请输入',
   type: 'text',
-  maxlength: undefined,
   disabled: false,
   clearable: false
 })

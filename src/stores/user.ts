@@ -1,5 +1,6 @@
-import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
+
 import { USER_INFO_KEY, TOKEN_KEY } from '@/constants'
 import { storage } from '@/utils/storage'
 

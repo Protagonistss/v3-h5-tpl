@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { showFailToast, showSuccessToast } from 'vant'
+import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+
 import { useUserStore } from '@/stores/user'
 // 接入真实后端后,引入 loginApi 替换 mockLogin:
 // import { loginApi, type LoginParams } from '@/api/user'
@@ -15,7 +16,7 @@ const password = ref('')
 const submitting = ref(false)
 
 /** 登录成功后的回跳地址(由路由守卫携带) */
-const redirect = (route.query.redirect as string) || '/'
+const redirect = (route.query['redirect'] as string) || '/'
 
 async function onSubmit() {
   if (!username.value || !password.value) {

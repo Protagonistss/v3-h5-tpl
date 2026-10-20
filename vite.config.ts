@@ -1,9 +1,10 @@
 import { fileURLToPath, URL } from 'node:url'
-import { defineConfig, loadEnv } from 'vite'
+
 import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-import { VantResolver } from 'unplugin-vue-components/resolvers'
 import pxToViewport from 'postcss-px-to-viewport-8-plugin'
+import { VantResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+import { defineConfig, loadEnv } from 'vite'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
@@ -52,8 +53,8 @@ export default defineConfig(({ mode }) => {
       port: 5173,
       proxy: {
         // 开发环境接口代理,目标地址在 .env.development 的 VITE_PROXY_TARGET 中配置
-        [env.VITE_API_BASE_URL || '/api']: {
-          target: env.VITE_PROXY_TARGET || 'http://localhost:3000',
+        [env['VITE_API_BASE_URL'] || '/api']: {
+          target: env['VITE_PROXY_TARGET'] || 'http://localhost:3000',
           changeOrigin: true
         }
       }

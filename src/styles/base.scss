@@ -16,8 +16,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family:
-    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto,
-    'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    Helvetica,
+    Segoe UI,
+    Arial,
+    Roboto,
+    'PingFang SC',
+    'Hiragino Sans GB',
+    'Microsoft Yahei',
+    sans-serif;
   color: $text-color;
   background-color: $bg-color;
 }

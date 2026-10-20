@@ -1,7 +1,9 @@
-import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+
 import App from './App.vue'
 import router from './router'
+
 import '@/styles/index.scss'
 
 async function bootstrap() {
@@ -13,6 +15,8 @@ async function bootstrap() {
   // H5 真机调试面板,通过环境变量开关(.env.development 中配置)
   if (import.meta.env.VITE_ENABLE_VCONSOLE === 'true') {
     const { default: VConsole } = await import('vconsole')
+    // vconsole 仅需实例化即挂载面板,属于合理的副作用构造
+    // eslint-disable-next-line no-new
     new VConsole()
   }
 

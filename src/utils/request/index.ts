@@ -2,9 +2,10 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import { showFailToast } from 'vant'
 import 'vant/es/toast/style'
+
 import { SUCCESS_CODE, TOKEN_KEY } from '@/constants'
-import { storage } from '@/utils/storage'
 import router from '@/router'
+import { storage } from '@/utils/storage'
 
 /** HTTP 状态码 → 用户提示文案 */
 const HTTP_ERROR_MESSAGE: Record<number, string> = {
