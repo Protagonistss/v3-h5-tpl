@@ -1,0 +1,36 @@
+// =============================================
+// 全局 SCSS 变量(vite.config.ts 已自动注入,业务样式中直接使用)
+// 布局尺寸按 375 设计稿书写,构建时自动转换为 vw
+// =============================================
+
+// 主题色(与 Vant 主题保持一致,改色时同步修改 App.vue 中 themeVars)
+$primary-color: #1989fa;
+$success-color: #07c160;
+$warning-color: #ff976a;
+$danger-color: #ee0a24;
+
+// 文本色
+$text-color: #323233;
+$text-color-secondary: #969799;
+
+// 背景色
+$bg-color: #f7f8fa;
+$bg-color-dark: #ffffff;
+
+// 边框色
+$border-color: #ebedf0;
+
+// 圆角
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// 字号
+$font-size-xs: 10px;
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+
+// 安全区
+$safe-area-top: env(safe-area-inset-top);
+$safe-area-bottom: env(safe-area-inset-bottom);

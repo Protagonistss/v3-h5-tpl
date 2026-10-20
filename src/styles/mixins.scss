@@ -1,0 +1,49 @@
+// =============================================
+// 常用 SCSS Mixin(vite.config.ts 已自动注入,业务样式中直接 @include)
+// =============================================
+
+// 单行/多行文本溢出省略
+@mixin ellipsis($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+  }
+}
+
+// 高清屏 1px 边框(解决移动端 1px 偏粗问题)
+// 用法: @include hairline(bottom, $border-color);
+@mixin hairline($position: bottom, $color: #ebedf0) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    #{$position}: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color;
+    transform: scaleY(0.5);
+    transform-origin: $position center;
+    pointer-events: none;
+  }
+}
+
+// flex 垂直居中
+@mixin flex-center($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+// 底部安全区适配(iPhone 刘海屏/全面屏)
+@mixin safe-area-bottom($extra: 0px) {
+  padding-bottom: calc(#{$extra} + env(safe-area-inset-bottom));
+}

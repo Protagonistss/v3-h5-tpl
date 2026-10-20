@@ -1,23 +1,7 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["site/*"],
-      "packages/*": ["packages/*"],
-      "typings/*": ["typings/*"]
-    }
-  },
-  "include": ["site/**/*.ts", "site/**/*.d.ts", "site/**/*.tsx", "site/**/*.vue", "packages/**/*.vue", "packages/**/*.ts", "site/env.d.ts"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
